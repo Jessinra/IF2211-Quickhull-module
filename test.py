@@ -3,14 +3,17 @@ import pandas as pd
 import matplotlib.pyplot
 
 
-def generate_points(count):
+def generate_points():
     """
     Generate random points (x,y)
-    :param count: amount of point
-    :type count: int
     :return: List of randomized point
     :rtype: DataFrame
     """
+
+    try:
+        count = int(input("Enter points count: "))
+    except:
+        count = 25
 
     x_min = 0
     x_max = 100
@@ -298,8 +301,7 @@ def draw(point_list, tuple_list):
 if __name__ == '__main__':
 
     # Initialize point
-    point_count = 25
-    point_list = generate_points(point_count)
+    point_list = generate_points()
 
     # Find the left and right most
     left_most = left_most_point(point_list)
